@@ -6,7 +6,7 @@
 
 [![Watch the demo](https://img.youtube.com/vi/wjzd32FGVR0/hqdefault.jpg)](https://youtu.be/wjzd32FGVR0)
 
-> Control a multi-grip prosthetic hand using **one** EMG sensor by matching brief muscle “impulses” with **DTW** on an **ESP32**. Four grips via binary impulse patterns (**00, 01, 10, 11**). ~**92%** accuracy in tests; **~414-644 ms** impulse-to-motion latency.
+> Control a multi-grip prosthetic hand using **one** EMG sensor by matching brief muscle "impulses" with **DTW** on an **ESP32**. Four grips via binary impulse patterns (**00, 01, 10, 11**). ~**92%** accuracy in tests; **~414-644 ms** impulse-to-motion latency.
 
 **Tech stack:** ESP32 • C++/PlatformIO • DTW template matching • Rotary encoder • 3D-printed PLA
 
@@ -110,7 +110,7 @@ Licensed under the **MIT License**: see [LICENSE](./LICENSE).
 KADILAR, M. C., TOPTAŞ, E., & AKGÜN, G. (2024). An EMG-based Prosthetic Hand Design and Control Through Dynamic Time Warping. International Journal of Advanced Natural Sciences and Engineering Researches, 8(2), 339-349. Retrieved from https://as-proceeding.com/index.php/ijanser/article/view/1728
 
 ### In review:
-**Kadılar, M.C.; Toptaş, E.; Akgün, G.** “Impulsive pattern recognition of a myoelectric hand via Dynamic Time Warping,” *IEEE Trans. Med. Robotics and Bionics*, 2025.
+**Kadılar, M.C.; Toptaş, E.; Akgün, G.** "Impulsive pattern recognition of a myoelectric hand via Dynamic Time Warping," *IEEE Trans. Med. Robotics and Bionics*, 2025.
 https://doi.org/10.48550/arXiv.2504.15256
 
 ## Acknowledgments
