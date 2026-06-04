@@ -97,7 +97,6 @@ platformio.ini       # build configuration
 ## Roadmap
 
 * Add **haptic feedback** band (vibration/piezo) for grip confirmation.
-* Optional **ROS 2** bridge node (USB serial → ROS topic) for sim/integration.
 * Tune DTW thresholds per user **fatigue**; add auto-recalibration over time.
 
 ## Safety & License
