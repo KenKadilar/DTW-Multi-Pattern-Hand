@@ -10,7 +10,7 @@
 
 **Tech stack:** ESP32 • C++/PlatformIO • DTW template matching • Rotary encoder • 3D-printed PLA
 
-## What this is (Problem → Idea → Outcome)
+## What this is (Problem -> Idea -> Outcome)
 
 * **Problem:** Multi-sensor myoelectric hands are accurate but **complex/expensive**; accessible control with fewer sensors is desirable.
 * **Idea:** Use **one EMG channel** and **Dynamic Time Warping (DTW)** to match brief, user-taught impulse shapes to template patterns.
@@ -18,7 +18,7 @@
 
 ## Highlights
 
-* **Single-sensor control:** one sEMG channel → multi-pattern control (binary combos).
+* **Single-sensor control:** one sEMG channel -> multi-pattern control (binary combos).
 * **On-device DTW:** template matching runs on **ESP32** (C++/PlatformIO).
 * **Mechanism:** DC motor **+ worm gear** for torque (**~85 N / ~8.5 kg** simulated grip; self-locking, so it holds a grip without back-driving); **rotary encoder** for position/limits.
 * **DIY-ready:** 3D-printed PLA mechanism; simple **UI-based calibration**; data logged at **\~20 ms** intervals.
@@ -27,13 +27,13 @@
 ## System Overview
 
 ```
-[ sEMG electrode ] → [ filter/amplify ] → [ ESP32: DTW matcher ]
-→ [ pattern decoded (00/01/10/11) ] → [ grip controller ]
-→ [ motor driver ] → [ DC motor + worm gear + fingers (encoder-limited) ]
+[ sEMG electrode ] -> [ filter/amplify ] -> [ ESP32: DTW matcher ]
+-> [ pattern decoded (00/01/10/11) ] -> [ grip controller ]
+-> [ motor driver ] -> [ DC motor + worm gear + fingers (encoder-limited) ]
 ```
 
 * **Calibration:** record two impulse templates (Pattern 0 / Pattern 1).
-* **Control:** live sEMG is DTW-matched against templates; two sequential detections form a **binary pair** (e.g., `0` then `1` → **01**) that selects the grip.
+* **Control:** live sEMG is DTW-matched against templates; two sequential detections form a **binary pair** (e.g., `0` then `1` -> **01**) that selects the grip.
 
 ## Specs (Prototype)
 
@@ -43,7 +43,7 @@
 | Sampling/logging        | \~**20 ms** intervals                 |
 | Patterns                | **4** (00, 01, 10, 11)                |
 | Accuracy (4-class)      | **\~92%** (46/50 correct)             |
-| Latency (impulse→motor) | **\~414-644 ms**                      |
+| Latency (impulse->motor) | **\~414-644 ms**                      |
 | MCU / Firmware          | **ESP32** / C++ (PlatformIO)          |
 | Drive                   | DC motor + **worm gear** (self-locking) |
 | Sensing                 | **Rotary encoder** (limits & control) |
@@ -55,7 +55,7 @@
 
 ## Quickstart
 1. **Assemble** the mechanism (print parts, install worm gear, mount encoder and motor).
-2. **Wire** EMG module → ESP32; encoder → ESP32; driver → motor. See the [pin map](./hardware/README.md#esp32-pin-map) for exact GPIOs.
+2. **Wire** EMG module -> ESP32; encoder -> ESP32; driver -> motor. See the [pin map](./hardware/README.md#esp32-pin-map) for exact GPIOs.
 3. **Flash**: `pio run -t upload` (PlatformIO).
 4. **Calibrate**: record **Pattern 0** and **Pattern 1** templates.
 5. **Drive**: perform two impulses to select grip (**00/01/10/11**). Motion is **encoder-limited**.
@@ -74,9 +74,9 @@ See **[BOM.md](./BOM.md)** for prices (TRY, 2024) and USD/CAD conversions.
 
 ## Results
 
-* **Confusion matrix (4-class)**: 46 correct / 4 wrong → **\~92%**.
+* **Confusion matrix (4-class)**: 46 correct / 4 wrong -> **\~92%**.
 * **Comparison**: this is **92% with a single EMG sensor** across 4 patterns. For reference, Castro et al. report **80% with 10 EMG sensors** across 10 patterns (rising to 97% when reduced to 6 patterns). The contribution here is matching multi-sensor accuracy with one channel, not beating the absolute ceiling.
-* **Latency**: impulse→motor start **\~414-644 ms** (DTW match threshold crossing to actuation).
+* **Latency**: impulse->motor start **\~414-644 ms** (DTW match threshold crossing to actuation).
 * **Detection threshold**: resting muscle sits near a DTW similarity of **~1.85** to the searched template; a contraction is accepted once similarity falls below **~1.12**, at which point the motor actuates. Lower thresholds detect faster but admit more noise.
 * **Failure modes**: the 4 misses came from muscle fatigue and signal noise, which distort the impulse shape and cause occasional misreads. Reliability drops over a long session as the muscle tires, and an unstable supply (low battery or PC power) adds noise during calibration, so calibration is done on stable power.
 * **Known limitation (mechanical)**: the ~85 N grip and torque numbers are from Siemens NX structural simulation, not bench-validated. The PLA prototype frame is too flexible under high torque to survive a full-force grip test, so those figures stand as design targets and the final design targets a titanium structure. This is a material limit, not a control limit.
