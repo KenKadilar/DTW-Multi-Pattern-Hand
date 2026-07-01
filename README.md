@@ -8,7 +8,7 @@
 
 > Control a multi-grip prosthetic hand using **one** EMG sensor by matching brief muscle "impulses" with **DTW** on an **ESP32**. Four grips via binary impulse patterns (**00, 01, 10, 11**). ~**92%** accuracy in tests; **~414-644 ms** impulse-to-motion latency.
 
-**Tech stack:** ESP32 • C++/PlatformIO • DTW template matching • Rotary encoder • 3D-printed PLA
+**Tech stack:** ESP32, C++/PlatformIO, DTW template matching, rotary encoder, 3D-printed PLA
 
 ## What this is (Problem -> Idea -> Outcome)
 
@@ -68,7 +68,7 @@
 * 1× **Worm gear set** + slider/finger linkages (3D-printed)
 * 1× **Rotary encoder** (motor or output shaft)
 * 1× **Motor driver** (ESP32-compatible)
-* **Power** (battery or bench) • **Wires** • **Fasteners** • **SD card** (optional logging)
+* **Power** (battery or bench), **Wires**, **Fasteners**, **SD card** (optional logging)
 
 See **[BOM.md](./BOM.md)** for prices (TRY, 2024) and USD/CAD conversions.
 
